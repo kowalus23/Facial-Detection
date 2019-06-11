@@ -1,0 +1,27 @@
+.form {
+  width: 700px;
+}
+
+.p-color {
+  color: #1f1f1f;
+}
+
+button {
+  transition: ease-in-out 200ms;
+  cursor: pointer;
+
+  &.btn-color {
+    color: #1f1f1f;
+    background: transparent;
+    border: 1px solid #1f1f1f;
+  }
+
+  &:hover, &:focus {
+    transform: scale(1.1);
+  }
+
+  &:active {
+    transform: scale(0.9);
+    transition: none;
+  }
+}
