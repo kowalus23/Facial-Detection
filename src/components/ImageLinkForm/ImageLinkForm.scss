@@ -1,5 +1,5 @@
 .form {
-  width: 700px;
+  width: 600px;
 }
 
 .p-color {
@@ -23,5 +23,21 @@ button {
   &:active {
     transform: scale(0.9);
     transition: none;
+  }
+}
+
+input {
+  border: 1px solid black;
+  transition: ease-in-out 200ms;
+
+  &::placeholder {
+    text-align: center;
+    color: #b4b4b4;
+  }
+
+  &:focus {
+    border: 2px solid black;
+    transform: scale(1.02);
+    outline: transparent;
   }
 }
