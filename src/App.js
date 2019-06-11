@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import './App.scss';
 import Navigation from "./components/Navigation/Navigation";
 import Logo from "./components/Logo/Logo";
+import ImageLinkForm from "./components/ImageLinkForm/ImageLinkForm";
+import Rank from "./components/Rank/Rank";
 
 class App extends Component {
   render() {
@@ -9,7 +11,8 @@ class App extends Component {
       <div>
         <Navigation/>
         <Logo/>
-        {/*<ImageLinkForm />*/}
+        <Rank/>
+        <ImageLinkForm/>
         {/*<FaceRecognition />*/}
       </div>
     )
