@@ -10,3 +10,10 @@ nav {
 .d-none {
   display: none;
 }
+
+.input-sign-in {
+  &:hover,
+  &:focus {
+    background-color: #ffffff40 !important;
+  }
+}
