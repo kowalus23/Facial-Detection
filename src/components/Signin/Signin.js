@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-class Signin extends Component {
+class SignIn extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -18,8 +18,20 @@ class Signin extends Component {
   };
 
   onSubmitSignIn = () => {
-    console.log(this.state);
-    this.props.onRouteChange('home');
+    fetch('http://localhost:3000/signin', {
+      method: 'post',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        email: this.state.signInEmail,
+        password: this.state.signInPassword
+      })
+    }).then(response => response.json())
+      .then(data => {
+        console.log(data);
+        if (data === 'success') {
+          this.props.onRouteChange('home');
+        }
+      })
   };
 
   render() {
@@ -64,4 +76,4 @@ class Signin extends Component {
   }
 }
 
-export default Signin;
+export default SignIn;

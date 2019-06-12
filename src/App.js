@@ -6,7 +6,7 @@ import FaceRecognition from "./components/FaceRecognition/FaceRecognition";
 import Logo from "./components/Logo/Logo";
 import ImageLinkForm from "./components/ImageLinkForm/ImageLinkForm";
 import Rank from "./components/Rank/Rank";
-import Signin from "./components/Signin/Signin";
+import SignIn from "./components/Signin/Signin";
 import Register from "./components/Register/Register";
 
 
@@ -82,7 +82,7 @@ class App extends Component {
             <FaceRecognition box={box} imageUrl={imageUrl}/>
           </div>
           : (route === 'signin'
-            ? <Signin onRouteChange={this.onRouteChange}/>
+            ? <SignIn onRouteChange={this.onRouteChange}/>
             : <Register/>)
         }
       </div>
