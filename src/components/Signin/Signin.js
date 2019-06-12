@@ -18,7 +18,7 @@ class SignIn extends Component {
   };
 
   onSubmitSignIn = () => {
-    fetch('http://localhost:3000/signin', {
+    fetch('http://localhost:3001/signin', {
       method: 'post',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
@@ -34,12 +34,18 @@ class SignIn extends Component {
       })
   };
 
+  handleKeyPress = (event) => {
+    if (event.key === 'Enter') {
+      this.onSubmitSignIn();
+    }
+  };
+
   render() {
     const {onRouteChange} = this.props;
     return (
       <article className="br3 ba dark-gray b--black-10 mv4 w-100 w-75-m w-50-l mw6 shadow-3 center">
         <main className="pa4 black-80">
-          <form className="measure">
+          <div className="measure">
             <fieldset id="sign_up" className="ba b--transparent ph0 mh0">
               <legend className="f1 fw6 ph0 mh0">Sign In</legend>
               <div className="mt3">
@@ -56,7 +62,8 @@ class SignIn extends Component {
                        type="password"
                        name="password"
                        id="password"
-                       onChange={this.onPasswordChange}/>
+                       onChange={this.onPasswordChange}
+                       onKeyPress={this.handleKeyPress}/>
               </div>
             </fieldset>
             <div className="">
@@ -69,7 +76,7 @@ class SignIn extends Component {
             <div className="lh-copy mt3">
               <p onClick={() => onRouteChange('register')} className="f6 link dim black db pointer">Register</p>
             </div>
-          </form>
+          </div>
         </main>
       </article>
     )
