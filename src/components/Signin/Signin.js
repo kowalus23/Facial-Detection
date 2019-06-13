@@ -26,9 +26,9 @@ class SignIn extends Component {
         password: this.state.signInPassword
       })
     }).then(response => response.json())
-      .then(data => {
-        console.log(data);
-        if (data === 'success') {
+      .then(user => {
+        if (user) {
+          this.props.loadUser(user);
           this.props.onRouteChange('home');
         }
       })
@@ -50,7 +50,7 @@ class SignIn extends Component {
               <legend className="f1 fw6 ph0 mh0">Sign In</legend>
               <div className="mt3">
                 <label className="db fw6 lh-copy f6" htmlFor="email-address">Email</label>
-                <input className="input-sign-in pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100"
+                <input className="input pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100"
                        type="email"
                        name="email-address"
                        id="email-address"
@@ -58,7 +58,7 @@ class SignIn extends Component {
               </div>
               <div className="mv3">
                 <label className="db fw6 lh-copy f6" htmlFor="password">Password</label>
-                <input className="input-sign-in b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100"
+                <input className="input b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100"
                        type="password"
                        name="password"
                        id="password"
