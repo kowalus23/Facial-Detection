@@ -74,20 +74,16 @@ class App extends Component {
       this.state.input)
       .then(response => {
         if (response) {
-          fetch('http://localhost:3001/image', {
+          fetch('http://localhost:3003/image', {
             method: 'put',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
-              id: this.state.user.id,
+              id: this.state.user.id
             })
           })
             .then(response => response.json())
             .then(count => {
-              this.setState({
-                users: {
-                  entries: count,
-                }
-              })
+              this.setState(Object.assign(this.state.user,{entries: count}))
             });
         }
         this.displayFaceBox(this.calculateFaceLocation(response))
@@ -112,15 +108,12 @@ class App extends Component {
         {route === 'home'
           ? <div>
             <Logo/>
-            < Rank/>
-            < ImageLinkForm
-              onInputChange={this.onInputChange}
-              onButtonSubmit={this.onPictureSubmit}
-            />
+            < Rank name={this.state.user.name} entries={this.state.user.entries}/>
+            < ImageLinkForm onInputChange={this.onInputChange} onPictureSubmit={this.onPictureSubmit}/>
             <FaceRecognition box={box} imageUrl={imageUrl}/>
           </div>
           : (route === 'signin'
-            ? <SignIn onRouteChange={this.onRouteChange}/>
+            ? <SignIn loadUser={this.loadUser} onRouteChange={this.onRouteChange}/>
             : <Register loadUser={this.loadUser} onRouteChange={this.onRouteChange}/>)
         }
       </div>
