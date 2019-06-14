@@ -5,6 +5,7 @@ There is still many things i'll try to improve my APP in the mean time:
 * Error msg during signing/registration or even add a toast :D
 * Add FORM component (to handle Signin/Registration in one component)
 * Router improvement (maybe)
+* Ranking for (who did the most detections)
 
 ## Available Scripts
 
@@ -19,7 +20,7 @@ The page will reload if you make edits.<br>
 You will also see any lint errors in the console.
 
 We need backend yet:
-### Backend link...
+### Backend https://github.com/kowalus23/Facial-Detection-Backend
 You need to clone Back-End repository and also run a server on port that you will type at the bottom of `server.js` in listen(...). Once you've done that, just start the server:
 ### `npm start`
 Now it should work with your backend, also it's really important to keep proper ports with endpoints of our server
