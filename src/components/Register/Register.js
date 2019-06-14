@@ -12,7 +12,7 @@ class Register extends Component {
   }
 
   onNameChange = (event) => {
-    this.setState({name: event.target.name})
+    this.setState({name: event.target.value});
   };
 
   onEmailChange = (event) => {
@@ -25,7 +25,7 @@ class Register extends Component {
 
   /// DRY function below
   onSubmitSignIn = () => {
-    fetch('http://localhost:3004/register', {
+    fetch('http://localhost:3000/register', {
       method: 'post',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
@@ -61,7 +61,7 @@ class Register extends Component {
                 />
               </div>
               <div className="mt3">
-                <label className="db fw6 lh-copy f6" htmlFor="name">Email</label>
+                <label className="db fw6 lh-copy f6" htmlFor="email">Email</label>
                 <input
                   className="input pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100"
                   type="email"
