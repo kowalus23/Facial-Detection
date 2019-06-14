@@ -14,24 +14,27 @@ const app = new Clarifai.App({
   apiKey: '177a8c4747584e32830091068e1c7a5a'
 });
 
+const initialState = {
+  input: '',
+  imageUrl: '',
+  box: {},
+  route: 'signin',
+  isSignedIn: false,
+  user: {
+    id: '',
+    name: '',
+    email: '',
+    entries: 0,
+    joined: ''
+  }
+};
+
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      input: '',
-      imageUrl: '',
-      box: {},
-      route: 'signin',
-      isSignedIn: false,
-      user: {
-        id: '',
-        name: '',
-        email: '',
-        entries: 0,
-        joined: ''
-      }
-    }
+    this.state = initialState
   }
+
 
   loadUser = (data) => {
     this.setState({
@@ -83,8 +86,9 @@ class App extends Component {
           })
             .then(response => response.json())
             .then(count => {
-              this.setState(Object.assign(this.state.user,{entries: count}))
-            });
+              this.setState(Object.assign(this.state.user, {entries: count}))
+            })
+            .catch(err => console.log("ERROR with image", err))
         }
         this.displayFaceBox(this.calculateFaceLocation(response))
       })
@@ -93,7 +97,7 @@ class App extends Component {
 
   onRouteChange = (route) => {
     if (route === 'signout') {
-      this.setState({isSignedIn: false})
+      this.setState(initialState)
     } else if (route === 'home') {
       this.setState({isSignedIn: true})
     }
@@ -112,7 +116,7 @@ class App extends Component {
             < ImageLinkForm onInputChange={this.onInputChange} onPictureSubmit={this.onPictureSubmit}/>
             <FaceRecognition box={box} imageUrl={imageUrl}/>
           </div>
-          : (route === 'signin'
+          : (route === 'signin' || route === 'signout'
             ? <SignIn loadUser={this.loadUser} onRouteChange={this.onRouteChange}/>
             : <Register loadUser={this.loadUser} onRouteChange={this.onRouteChange}/>)
         }
