@@ -1,5 +1,5 @@
 {
-  "name": "my-app",
+  "name": "facial-detection",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
