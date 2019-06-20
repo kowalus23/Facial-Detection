@@ -1,4 +1,4 @@
-`Live view` https://facial-detection-heroku.herokuapp.com/
+`Live view` https://facial-detection-heroku.herokuapp.com/ (first open, takes few seconds (because server went sleep if it's unused) ;)
 
 This project is made to learn how React dynamically works with server and database, by using node/express.js and postgresql via knex package in our server.
 
