@@ -2,6 +2,8 @@
 
 This project is made to learn how React dynamically works with server and database, by using node/express.js and postgresql via knex package in our server.
 
+
+
 There is still many things i'll try to improve my APP in the mean time:
 * Inputs validation
 * Error msg during signing/registration or even add a toast :D
